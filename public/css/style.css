@@ -1,0 +1,146 @@
+body{
+	margin: 0 auto;
+	padding:0 ;
+}
+.header{
+	padding-top:30px;
+	border:1px solid lightblue;
+	
+}
+h2 {
+    font-size: 20px;
+}
+h1{
+	color:lightblue;
+}
+div.container{
+	margin:0 auto;
+}
+button#logout{
+	margin-top:-30px;
+	float:left;
+	border:none;
+
+}
+.sb{
+	background-color:lightblue;
+			}
+.sb div span.one{
+	font-size: 35px;	
+}
+ .sb div span.two{
+	font-size: 25px;
+}
+
+a:hover{
+	text-decoration: none;
+}
+span#one,span#three{
+	font-size: 25px;
+}
+span#two{
+	font-size: 35px;
+}
+hr{
+	margin:15px;
+}
+a{
+	color:white;
+}
+.clearfix{
+	clear:both;
+}
+.sb div:first-child{
+	margin-top: 15px;
+}
+.button{
+	border: none;
+	background-color: lightblue;
+	width: 110px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+}
+#logo{
+	float:right;
+	width: 100px;
+	height: 100px;
+	margin-top:-25px;
+	margin-bottom: 5px;
+	
+	}
+	
+
+.panel-table .panel-body{
+  padding:0;
+}
+
+.panel-table .panel-body .table-bordered{
+  border-style: none;
+  margin:0;
+}
+
+.panel-table .panel-body .table-bordered > thead > tr > th:first-of-type {
+    text-align:center;
+    width: 100px;
+}
+
+.panel-table .panel-body .table-bordered > thead > tr > th:last-of-type,
+.panel-table .panel-body .table-bordered > tbody > tr > td:last-of-type {
+  border-right: 0px;
+}
+
+.panel-table .panel-body .table-bordered > thead > tr > th:first-of-type,
+.panel-table .panel-body .table-bordered > tbody > tr > td:first-of-type {
+  border-left: 0px;
+}
+
+.panel-table .panel-body .table-bordered > tbody > tr:first-of-type > td{
+  border-bottom: 0px;
+}
+
+.panel-table .panel-body .table-bordered > thead > tr:first-of-type > th{
+  border-top: 0px;
+}
+
+.panel-table .panel-footer .pagination{
+  margin:0; 
+}
+
+/*
+used to vertically center elements, may need modification if you're not using default sizes.
+*/
+.panel-table .panel-footer .col{
+ line-height: 34px;
+ height: 34px;
+}
+
+.panel-table .panel-heading .col h3{
+ line-height: 30px;
+ height: 30px;
+}
+
+.panel-table .panel-body .table-bordered > tbody > tr > td{
+  line-height: 34px;
+}
+
+<nav class="navbar navbar-default">
+        <div class="nav nav-justified navbar-nav">
+ 
+            <form class="navbar-form navbar-search" role="search">
+                <div class="input-group">
+                
+                    <input type="text" class="form-control">
+                
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-search btn-default">
+                        GO
+                        </button>
+                         
+                         
+                    </div>
+                </div>  
+            </form>   
+         
+        </div>
+    </nav>
