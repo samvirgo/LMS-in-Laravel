@@ -1,18 +1,11 @@
-@extends('layout.master')
-@section('style')
-  <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="{!! asset('js/bootstrap.min.js') !!}"></script>
-
-@endsection
+@extends('/layouts.master')
 
 @section('content')
 
-<div id="signupbox" style=" margin-top:10px" class="mainbox col-md-12">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="panel-title">Add a New Book</div>
+
+                        <div class="module">
+                            <div class="module-head">
+                                <h3>Add Book</h3>
             </div>  
             <div class="panel-body" >
 
@@ -31,66 +24,72 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-
-                    {!! Form::open(array('route' => 'book.store','method'=>'POST', 'files' => true)) !!}
+                         <div class="module-body">
+                    {!! Form::open(array('route' => 'book.store','method'=>'POST', 'files' => true,'class' => 'form-horizontal row-fluid')) !!}
                      
-                        <div  class="form-group required" >
-                            <label  class="control-label col-md-4  requiredField"> Category<span class="asteriskField">*</span> </label>
-                            <div class="controls col-md-8 ">
-                                 {!! Form::text('category', null, array('placeholder' => 'Category','class' => 'form-control')) !!}
+                               
+                                        
+                                        <div class="control-group">
+                                            <label class="control-label" for="basicinput">Enter Book Category</label>
+                                            <div class="controls">
+                                 {!! Form::text('category', null, array('placeholder' => 'Category','class' => 'span8')) !!}
                             </div>
                         </div>
-                        <div  class="form-group required">
-                            <label  class="control-label col-md-4  requiredField"> Book Title<span class="asteriskField">*</span> </label>
-                            <div class="controls col-md-8 ">
-                                  {!! Form::text('name', null, array('placeholder' => 'Book Title','class' => 'form-control')) !!}
+
+                        
+                          <div class="control-group">
+                                            <label class="control-label" for="basicinput">Enter Book Name</label>
+                                            <div class="controls">
+                                  {!! Form::text('name', null, array('placeholder' => 'Book Title','class' => 'span8')) !!}
                             </div>     
                         </div>
-                        <div  class="form-group required">
-                            <label  class="control-label col-md-4  requiredField">Copyright <span class="asteriskField">*</span> </label>
-                            <div class="controls col-md-8 "> 
-                                  {!! Form::text('copyright', null, array('placeholder' => 'Copyright for the Book','class' => 'form-control')) !!}
+                        <div class="control-group">
+                                            <label class="control-label" for="basicinput">Enter Copyright of Book</label>
+                                            <div class="controls"> 
+                                  {!! Form::text('copyright', null, array('placeholder' => 'Copyright for the Book','class' => 'span8')) !!}
                             </div>
                         </div>
-                        <div  class="form-group required"> 
-                            <label class="control-label col-md-4  requiredField"> Author<span class="asteriskField">*</span> </label> 
-                            <div class="controls col-md-8 "> 
-                                {!! Form::text('author', null, array('placeholder' => 'Author','class' => 'form-control')) !!}
+                        <div class="control-group">
+                                            <label class="control-label" for="basicinput">Enter Author Name</label>
+                                            <div class="controls"> 
+                                {!! Form::text('author', null, array('placeholder' => 'Author','class' => 'span8')) !!}
                             </div>
                         </div>
                      
-                      <div  class="form-group required"> 
-                            <label  class="control-label col-md-4  requiredField"> No of Books<span class="asteriskField">*</span> </label> 
-                            <div class="controls col-md-8 "> 
-                               {!! Form::number('book_no', null, array('placeholder' => 'No of Book','class' => 'form-control')) !!}
+                       <div class="control-group">
+                                            <label class="control-label" for="basicinput">Enter Book Number</label>
+                                            <div class="controls"> 
+                               {!! Form::number('book_no', null, array('placeholder' => 'No of Book','class' => 'span8')) !!}
                             </div>
                         </div>
 
-                        <div  class="form-group required"> 
-                            <label  class="control-label col-md-4  requiredField"> ISBN<span class="asteriskField">*</span> </label> 
-                            <div class="controls col-md-8 "> 
-                               {!! Form::number('isbn', null, array('placeholder' => 'ISBN for the Book','class' => 'form-control')) !!}
+                         <div class="control-group">
+                                            <label class="control-label" for="basicinput">Enter ISBN of Book</label>
+                                            <div class="controls"> 
+                               {!! Form::number('isbn', null, array('placeholder' => 'ISBN for the Book','class' => 'span8')) !!}
                             </div>
                         </div>
 
-                        <div  class="form-group required"> 
-                            <label  class="control-label col-md-4  requiredField"> Shelf No<span class="asteriskField">*</span> </label> 
-                            <div class="controls col-md-8 "> 
-                               {!! Form::number('shelf_no', null, array('placeholder' => 'Shelf No','class' => 'form-control')) !!}
+                        <div class="control-group">
+                                            <label class="control-label" for="basicinput">Enter Shelf No</label>
+                                            <div class="controls"> 
+                               {!! Form::number('shelf_no', null, array('placeholder' => 'Shelf No','class' => 'span8')) !!}
                             </div>
                         </div>
 
-                        <div class="form-group "> 
-                            <label class="control-label col-md-4 "> Upload the Book</label> 
-                            <div class="controls col-md-8 "> 
+                        <div class="control-group">
+                                            <label class="control-label" for="basicinput">Upload Book</label>
+                                            <div class="controls"> 
                                <input type="file" name="book_file_name" id="file">
                             </div>
                         </div>
                        
-                        <div class="form-group"> 
+                        <div class="control-group">
+                                            
                             <div class="aab controls col-md-4 "></div>
-                            <div class="controls col-md-8 ">
-                                <button type="submit" class="btn btn-default">Submit</button>
+							<div class="controls"> 
+                            
+                                <button type="submit" class="btn btn-info">Submit</button>
                             </div>
                         </div> 
                {!! Form::close() !!}   

@@ -54,6 +54,16 @@
 				<span class="glyphicon glyphicon-book , two"></span><br>
 				List All Books In Library</a>
 			</div>
+			<hr>
+			<div class="text-center">
+				<a href="{{ url('monograph/create') }}"><span class="glyphicon glyphicon-plus-sign , one"></span><span class="glyphicon glyphicon-paper , two"></span><br>Add Monographs</a>
+			</div>
+			<hr>
+			<div class="text-center">
+				<a href="{{ url('monograph') }}"><span class="glyphicon glyphicon-list  , one"></span>
+				<span class="glyphicon glyphicon-book , two"></span><br>
+				List All Monographs In Library</a>
+			</div>
 		</div>
 		<div class="col-md-8">
 

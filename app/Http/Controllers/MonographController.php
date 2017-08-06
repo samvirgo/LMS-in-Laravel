@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Book;
+use App\Monograph;
 
-class BookController extends Controller
+class MonographController extends Controller
 {
 
     /**
@@ -16,20 +16,24 @@ class BookController extends Controller
      */
    public function index(Request $request)
     {
-        $books = Book::orderBy('id','DESC')->paginate(5);
-        return view('Book.index',compact('books'))
+        $monographs = Monograph::orderBy('id','DESC')->paginate(5);
+        return view('Monograph.index',compact('monographs'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
 
- public function searchBook(Request $request)
+
+public function searchMonograph(Request $request)
  {
     $search = \Request::get('search');
-    $books = Book::where('name','like','%'.$search.'%')->orderBy('id')->paginate(5);
-      return view('Book.searchresult',compact('books'))
+    $monographs = Monograph::where('name','like','%'.$search.'%')->orderBy('id')->paginate(5);
+      return view('Monograph.searchresult',compact('monographs'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
 
     }
+
+
+
 
 
     /**
@@ -39,7 +43,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('Book.create');
+        return view('Monograph.create');
 
         $this->validate($request, [
       'image' => 'mimes:pdf', //only allow this type extension file.
@@ -59,13 +63,9 @@ class BookController extends Controller
   public function store(Request $request)
     {
         $this->validate($request, [
-            'category' => 'required',
             'name' => 'required',
-            'author' => 'required',
-            'copyright' => 'required',
-            'book_no' => 'required',
-            'isbn' => 'required',
-            'shelf_no' => 'required',
+            'faculty' => 'required',
+            'subject' => 'required',
             'book_file_name' => 'required',
         ]);
         $file = $request->file('book_file_name');
@@ -76,9 +76,9 @@ class BookController extends Controller
 
         $input['book_file_name'] = $file->getClientOriginalName();
         
-        \DB::table('books')->insert($input);
-        return redirect()->route('book.create')
-                        ->with('success','book Added successfully');
+        \DB::table('monographs')->insert($input);
+        return redirect()->route('monograph.create')
+                        ->with('success','monograph Added successfully');
     }
 
     /**
@@ -89,8 +89,8 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        $book = Book::find($id);
-        return view('Book.show',compact('book'));
+        $monograph = Monograph::find($id);
+        return view('Monograph.show',compact('monograph'));
     }
 
     /**
@@ -101,8 +101,8 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $book = Book::find($id);
-        return view('Book.edit',compact('book'));
+        $monograph = Monograph::find($id);
+        return view('Monograph.edit',compact('monograph'));
     }
 
     /**
@@ -115,18 +115,14 @@ class BookController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-           'category' => 'required',
-            'name' => 'required',
-            'author' => 'required',
-            'copyright' => 'required',
-            'book_no' => 'required',
-            'isbn' => 'required',
-            'shelf_no' => 'required',
+          'name' => 'required',
+            'faculty' => 'required',
+            'subject' => 'required',
         ]);
 
-       Book::find($id)->update($request->all());
-        return redirect()->route('book.index')
-                        ->with('success','Book updated successfully');
+       Monograph::find($id)->update($request->all());
+        return redirect()->route('monograph.index')
+                        ->with('success','Monograph updated successfully');
     }
 
     /**
@@ -137,8 +133,8 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        Book::find($id)->delete();
-        return redirect()->route('book.index')
-                        ->with('success','Book deleted successfully');
+        Monograph::find($id)->delete();
+        return redirect()->route('monograph.index')
+                        ->with('success','Monograph deleted successfully');
     }
 }
